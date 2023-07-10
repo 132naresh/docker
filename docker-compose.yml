@@ -1,0 +1,38 @@
+version: "3"
+services:
+  aaa:
+    build: aaa/
+    ports:
+      - "8085:80"
+    volumes:
+      - "aaa-volumes"
+    networks:
+      - "aaa-networks"
+
+  bbb:
+    build: bbb/
+    ports:
+      - "8086:80"
+    volumes:
+      - "bbb-volumes"
+    networks:
+      - "bbb-networks"
+
+  ccc:
+    build: ccc/
+    ports:
+      - "8087:80"
+    volumes:
+      - "ccc-volumes"
+    networks:
+      - "ccc-networks"
+
+networks:
+  aaa-networks:
+    driver: bridge
+
+  bbb-networks:
+    driver: bridge
+
+  ccc-networks:
+    driver: bridge
